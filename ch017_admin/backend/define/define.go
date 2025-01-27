@@ -13,7 +13,7 @@ var (
 	// DefaultSize 默认每页查询20条数据
 	DefaultSize = 20
 	// UpAdminDSN 数据库连接信息配置
-	UpAdminDSN = ""
+	MiniAdminDSN = ""
 	// JwtKey 密钥（建议修改）
 	JwtKey = "mini-admin"
 	// TokenExpire token 有效期，7天
@@ -36,7 +36,7 @@ var (
 )
 
 func InitEnv() {
-	UpAdminDSN = os.Getenv("UpAdminDSN")
+	MiniAdminDSN = os.Getenv("MiniAdminDSN")
 }
 
 type UserClaim struct {
