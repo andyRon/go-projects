@@ -1,5 +1,7 @@
+运维面板
+-----
 
+参考：https://www.bilibili.com/video/BV1tG4y1e7rt
 
-https://www.bilibili.com/video/BV1tG4y1e7rt
-
-[echo](github.com/labstack/echo) 
+[Echo](github.com/labstack/echo)
+Gorm
