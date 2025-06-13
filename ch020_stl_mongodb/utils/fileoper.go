@@ -7,14 +7,18 @@ import (
 	"path/filepath"
 )
 
+// 对文件操作的函数集
+
+// ExecutableDir 存储整个项目编译后所在文件夹的绝对路径
 var ExecutableDir string
 
 // init函数会运行在utils包中的其他函数运行之前
 // 当其他包引入utils包后，utils包中的init()函数会先于其他函数运行
 func init() {
+	InitExecutableDir()
 }
 
-// 获取程序编译后的可执行文件所在文件夹名称
+// InitExecutableDir 获取程序编译后的可执行文件所在文件夹名称
 func InitExecutableDir() {
 	// 获取程序编译后的可执行文件路径executableFilePath，包含可执行文件的文件名
 	executableFilePath, err := os.Executable()
@@ -32,7 +36,7 @@ func InitExecutableDir() {
 	}
 }
 
-// 传入一个相对于程序可执行文件的相对目录，返回目录下的所有stl文件名的字符串切片
+// GetFileList 传入一个相对于程序可执行文件的相对目录，返回目录下的所有stl文件名的字符串切片
 func GetFileList(dirPath string) (fileList []string, err error) {
 	files, err := os.ReadDir(filepath.Join(ExecutableDir, dirPath))
 	if err != nil {

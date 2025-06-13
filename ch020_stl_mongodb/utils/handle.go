@@ -2,6 +2,8 @@ package utils
 
 import "log"
 
+// 错误处理函数
+
 // RecoverHandler 可恢复的错误处理函数，阻止程序退出。
 // 用于虽然发生致命错误，但不让整个程序退出的情景。
 func RecoverHandler(info string) {
