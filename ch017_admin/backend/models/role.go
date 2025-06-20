@@ -24,8 +24,8 @@ func GetRoleList(keyword string) *gorm.DB {
 	return tx
 }
 
-// GetRoleBasic 获取角色详情
-func GetRoleBasic(identity string) (*Role, error) {
+// GetRole 获取角色详情
+func GetRole(identity string) (*Role, error) {
 	rb := new(Role)
 	err := DB.Model(new(Role)).Where("identity = ?", identity).First(rb).Error
 	return rb, err

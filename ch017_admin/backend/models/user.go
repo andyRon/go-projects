@@ -19,4 +19,28 @@ func (table *User) TableName() string {
 	return "user"
 }
 
-// TODO
+// GetUserByUsernamePassword 根据用户名、密码查询 user_basic
+func GetUserByUsernamePassword(username, password string) (*User, error) {
+	data := new(User)
+	err := DB.Where("username = ? AND password = ?", username, password).First(data).Error
+	return data, err
+}
+
+// GetUserInfo 获取用户详情
+func GetUserInfo(identity string) *gorm.DB {
+	tx := DB.Debug().Model(new(User)).Select("user_basic.username, user_basic.phone, user_basic.avatar, rb.name role_name").
+		Joins("LEFT JOIN role_basic rb ON rb.identity = user_basic.role_identity").
+		Where("user_basic.identity = ?", identity)
+	return tx
+}
+
+// GetUserList 获取管理员列表
+func GetUserList(keyword string) *gorm.DB {
+	tx := DB.Model(new(User)).Select("user_basic.identity, user_basic.role_identity, rb.name role_name, " +
+		"user_basic.username, user_basic.phone, user_basic.created_at, user_basic.updated_at").
+		Joins("LEFT JOIN role_basic rb ON rb.identity = user_basic.role_identity")
+	if keyword != "" {
+		tx.Where("user_basic.username LIKE ?", "%"+keyword+"%")
+	}
+	return tx
+}
