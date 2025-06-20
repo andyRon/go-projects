@@ -8,7 +8,7 @@ import (
 var DB *gorm.DB
 
 func NewDB() {
-	dsn := "" // TODO
+	dsn := "user:password@tcp(192.168.1.8:3306)/meeting?charset=utf8mb4&parseTime=True&loc=Local" // TODO
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
