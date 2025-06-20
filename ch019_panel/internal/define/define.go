@@ -23,5 +23,5 @@ var (
 	ShellDir       = "./shell"
 	LogDir         = "./log"
 	DefaultWebDir  = "/home/wwwroot/"
-	NginxConfigDir = "/home/nginx/conf/"
+	NginxConfigDir = "/home/nginx/conf/" // TODO
 )

@@ -40,7 +40,7 @@ func SoftList(c echo.Context) error {
 	})
 }
 
-func StopOperation(c echo.Context) error {
+func SoftOperation(c echo.Context) error {
 	var (
 		op        = c.FormValue("op")
 		id        = c.FormValue("id")
