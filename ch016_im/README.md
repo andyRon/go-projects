@@ -1,5 +1,6 @@
 即时通讯系统
 ----
+基于Gin、MongoDB的即时通讯系统
 
 ### 技术栈
 
@@ -16,6 +17,7 @@ go get go.mongodb.org/mongo-driver/mongo
 go get -u github.com/golang-jwt/jwt/v4
 go get github.com/satori/go.uuid
 ```
+
 
 ### ref
 

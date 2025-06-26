@@ -100,6 +100,7 @@ func UserQuery(c *gin.Context) {
 		"data": data,
 	})
 }
+
 func SendCode(c *gin.Context) {
 	email := c.PostForm("email")
 	if email == "" {

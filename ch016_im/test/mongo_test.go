@@ -7,23 +7,40 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"log"
 	"testing"
 	"time"
 )
 
+func TestMongo(t *testing.T) {
+	// 1. 配置连接参数
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	// 2. 创建客户端
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+	if err != nil {
+		log.Fatal("连接失败: ", err)
+	}
+	defer client.Disconnect(ctx) // 程序退出时关闭连接
+
+	// 3. 健康检查
+	if err := client.Ping(ctx, nil); err != nil {
+		log.Fatal("心跳检测失败: ", err)
+	}
+	log.Println("成功连接 MongoDB！")
+}
+
 func TestFindOne(t *testing.T) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().SetAuth(options.Credential{
-		Username: "",
-		Password: "",
-	}).ApplyURI("mongodb://127.0.0.1:27017"))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
 		t.Fatal(err)
 	}
 	db := client.Database("im")
 	user := new(models.UserBasic)
-	err = db.Collection("user_basic").FindOne(context.Background(), bson.D{}).Decode(user)
+	err = db.Collection("user").FindOne(context.Background(), bson.D{}).Decode(user)
 	if err != nil {
 		t.Fatal(err)
 	}
