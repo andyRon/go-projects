@@ -23,6 +23,23 @@ ch034_doudizhu
 
 
 
+### 进阶功能
+
+网络对战
+
+将游戏扩展为网络版，支持多玩家在线对战。
+
+
+AI对战
+
+实现一个简单的AI，与人类玩家进行对战。
+
+
+图形界面
+
+使用Golang的图形库（如Fyne、Go-GTK等）开发图形界面版本。
+
+
 ### ref
 
 https://www.oryoy.com/news/shi-yong-golang-kai-fa-dou-di-zhu-you-xi-cong-ji-chu-dao-jin-jie-de-shi-zhan-zhi-nan.html
