@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+/*
+实现文件监听
+监听文件是否被修改
+*/
 func main() {
 	fileInfo, err := os.Stat("index.html")
 	if err != nil {

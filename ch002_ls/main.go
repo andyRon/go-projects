@@ -5,6 +5,9 @@ import (
 	"os"
 )
 
+/*
+实现ls命令
+*/
 func main() {
 
 	if len(os.Args) < 2 {

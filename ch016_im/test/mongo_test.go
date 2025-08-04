@@ -40,7 +40,7 @@ func TestFindOne(t *testing.T) {
 	}
 	db := client.Database("im")
 	user := new(models.UserBasic)
-	err = db.Collection("user").FindOne(context.Background(), bson.D{}).Decode(user)
+	err = db.Collection("user_basic").FindOne(context.Background(), bson.D{}).Decode(user)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -50,10 +50,13 @@ func TestFindOne(t *testing.T) {
 func TestFind(t *testing.T) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().SetAuth(options.Credential{
-		Username: "",
-		Password: "",
-	}).ApplyURI("mongodb://127.0.0.1:27017"))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+
+	//client, err := mongo.Connect(ctx, options.Client().SetAuth(options.Credential{
+	//	Username: "",
+	//	Password: "",
+	//}).ApplyURI("mongodb://127.0.0.1:27017"))
+
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -70,5 +73,14 @@ func TestFind(t *testing.T) {
 	}
 	for _, v := range urs {
 		fmt.Println("userRoom ==> ", v)
+	}
+}
+
+func TestMd5(t *testing.T) {
+	//fmt.Println(helper.GetMD5("123456"))
+	user := new(models.UserBasic)
+	err := models.Mongo.Collection(models.UserBasic{}.CollectionName()).FindOne(context.Background(), bson.M{"account": "admin", "password": "123456"}).Decode(user)
+	if err != nil {
+		t.Fatal(err)
 	}
 }

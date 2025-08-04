@@ -9,6 +9,15 @@ import (
 	"strings"
 )
 
+/*
+  一个简单的命令行TODO
+ 四个命令：
+ - create 创建一个TODO  `create 打篮球`
+ - show 显示所有TODO状态  `show`
+ - remove 删除一个TODO 	`remove 2`
+ - done 标记一个TODO为完成  `done 1`
+*/
+
 func main() {
 	type TODOs struct {
 		Id          int    `json:"id"`

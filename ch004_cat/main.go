@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-// Linux命令 cat
+// 实现命令cat
 
 func main() {
 	for _, arg := range os.Args[1:] {

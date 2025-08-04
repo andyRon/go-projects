@@ -1,0 +1,21 @@
+@startmindmap
+
+title IM
+
+* IM
+** √ 用户模块
+*** √ 密码登录
+*** √ 发送验证码
+*** √ 用户注册
+*** √ 用户详情
+*** √ 查询用户个人资料
+*** √ 添加好友
+*** √ 删除好友
+** √ 通讯模块（核心）
+*** √ 使用HTTP搭建Websocket服务
+*** √ 使用GIN搭建Websocket服务
+*** √ 发送、接受消息
+*** √ 聊天记录列表
+
+center footer andyron
+@endmindmap
