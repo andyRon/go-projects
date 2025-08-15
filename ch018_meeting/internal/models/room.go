@@ -11,7 +11,7 @@ type Room struct {
 	Name     string    `gorm:"column:name;type:varchar(100);not null" json:"name"`
 	BeginAt  time.Time `gorm:"column:begin_at;type:datetime;" json:"begin_at"`
 	EndAt    time.Time `gorm:"column:end_at;type:datetime;" json:"end_at"`
-	CreateId uint      `gorm:"column:create_id;type:int(11);not null" json:"create_id"`
+	CreateId uint      `gorm:"column:create_id;type:int(11);not null" json:"create_id"` // 房间创建者的ID
 }
 
 func (table *Room) TableName() string {

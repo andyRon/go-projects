@@ -12,7 +12,7 @@ var (
 	DateTimeLayout = "2006-01-02 15:04:05"
 	// DefaultSize 默认每页查询20条数据
 	DefaultSize = 20
-	// UpAdminDSN 数据库连接信息配置
+	// MiniAdminDSN 数据库连接信息配置
 	MiniAdminDSN = ""
 	// JwtKey 密钥（建议修改）
 	JwtKey = "mini-admin"

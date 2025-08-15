@@ -22,11 +22,12 @@ func Router() *gin.Engine {
 	r.GET("/ws/p2p/:room_identity/:user_identity", service.Wsp2PConnection)
 
 	auth := r.Group("/auth", middleware.Auth())
-
-	auth.GET("/meeting/list", service.MeetingList)
-	auth.POST("/meeting/create", service.MeetingCreate)
-	auth.POST("/meeting/edit", service.MeetingEdit)
-	auth.DELETE("/meeting/delete", service.MeetingDelete)
+	{
+		auth.GET("/meeting/list", service.MeetingList)
+		auth.POST("/meeting/create", service.MeetingCreate)
+		auth.POST("/meeting/edit", service.MeetingEdit)
+		auth.DELETE("/meeting/delete", service.MeetingDelete)
+	}
 
 	return r
 }
