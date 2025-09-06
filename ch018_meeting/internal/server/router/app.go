@@ -21,6 +21,7 @@ func Router() *gin.Engine {
 	// ws
 	r.GET("/ws/p2p/:room_identity/:user_identity", service.Wsp2PConnection)
 
+	//r.POST("/meeting/create", service.MeetingCreate)
 	auth := r.Group("/auth", middleware.Auth())
 	{
 		auth.GET("/meeting/list", service.MeetingList)

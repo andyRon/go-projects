@@ -13,6 +13,6 @@ func NewDB() {
 	if err != nil {
 		panic(err)
 	}
-	db.AutoMigrate(&Room{}, &RoomUser{}, &User{})
+	db.AutoMigrate(&Room{}, &RoomUser{}, &User{}) // 数据的迁移， TODO
 	DB = db
 }

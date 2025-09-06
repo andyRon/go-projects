@@ -2,6 +2,8 @@ package models
 
 import "gorm.io/gorm"
 
+// 某个用户进某个房间
+
 type RoomUser struct {
 	gorm.Model
 	Rid uint `gorm:"column:rid;type:int(11);not null" json:"rid"`

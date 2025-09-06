@@ -2,6 +2,8 @@ package service
 
 import "time"
 
+// 不同请求对象
+
 type MeetingListRequest struct {
 	Page    int    `json:"page" form:"page"`
 	Size    int    `json:"size" form:"size"`

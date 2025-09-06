@@ -42,6 +42,7 @@ func MeetingList(c *gin.Context) {
 	})
 }
 
+// MeetingCreate 创建会议
 func MeetingCreate(c *gin.Context) {
 	uc := c.MustGet("user_claims").(*define.UserClaims)
 	in := new(MeetingCreateRequest)
